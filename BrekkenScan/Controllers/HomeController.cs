@@ -1,19 +1,20 @@
-﻿using BrekkenScan.ViewModels;
+﻿using BrekkenScan.Application.Consume;
+using BrekkenScan.ViewModels;
 using Microsoft.AspNetCore.Mvc;
 
 namespace BrekkenScan.Controllers
 {
     public class HomeController : Controller
     {
-        public ActionResult Index()
+        public ActionResult Index([FromServices] GetConsumeService service)
         {
-            var m = new IndexModel
+            var consume = service.GetConsume();
+            return View(new IndexModel
             {
-                IKveld = 67,
-                Totalt = 945,
+                Tonight = consume.Tonight,
+                Total = consume.Total,
                 PPHPT = 1.23m,
-            };
-            return View(m);
+            });
         }
     }
 }

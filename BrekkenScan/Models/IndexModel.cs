@@ -2,9 +2,9 @@
 {
     public class IndexModel
     {
-        public int Totalt { get; set; }
+        public int Total { get; set; }
 
-        public int IKveld { get; set; }
+        public int Tonight { get; set; }
 
         public decimal PPHPT { get; set; }
     }
