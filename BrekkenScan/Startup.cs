@@ -1,15 +1,13 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+using BrekkenScan.Domain.Infrastructure;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 
-namespace BrekkenScan
+namespace BrekkenScan.Web
 {
     public class Startup
     {
@@ -20,7 +18,6 @@ namespace BrekkenScan
 
         public IConfiguration Configuration { get; }
 
-        // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
             services.Configure<CookiePolicyOptions>(options =>
@@ -30,6 +27,10 @@ namespace BrekkenScan
                 options.MinimumSameSitePolicy = SameSiteMode.None;
             });
 
+            services.RegisterBrekkenServices();
+
+            services.AddDbContext<BrekkenScanDbContext>(opt =>
+                opt.UseInMemoryDatabase("BrekkenDatabase"));
 
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
         }
@@ -50,7 +51,12 @@ namespace BrekkenScan
             app.UseStaticFiles();
             app.UseCookiePolicy();
 
-            app.UseMvc();
+            app.UseMvc(routes =>
+            {
+                routes.MapRoute(
+                    name: "default",
+                    template: "{controller=Home}/{action=Index}/{id?}");
+            });
         }
-    }
+}
 }

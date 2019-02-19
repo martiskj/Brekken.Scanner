@@ -13,11 +13,11 @@ body {
 }
 
 .skygge {
-    box-shadow: 3px 3px 10px #1f1f1f;
+    box-shadow: 3px 3px 10px #242424;
 }
 
 .boks-liten {
-    border-radius: 3px;
+    border-radius: 2px;
     background-color: #456597;
     height: 150px;
     width: 280px;
