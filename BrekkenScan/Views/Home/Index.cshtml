@@ -1,27 +1,7 @@
 ﻿@model BrekkenScan.ViewModels.IndexModel
 
-<div class="wrapper">
-    <div class="boks-liten skygge">
-        <i class="fas fa-glass-martini-alt"></i>
-        <div class="boks-liten-innhold">
-            <div class="boks-liten-tall">@Model.Total</div>
-            <div class="boks-liten-tekst">Totalt</div>
-        </div>
-    </div>
 
-    <div class="boks-liten skygge">
-        <i class="fas fa-ambulance"></i>
-        <div class="boks-liten-innhold">
-            <div class="boks-liten-tall">@Model.Tonight</div>
-            <div class="boks-liten-tekst">I kveld</div>
-        </div>
-    </div>
-
-    <div class="boks-liten skygge">
-        <i class="fas fa-rocket"></i>
-        <div class="boks-liten-innhold">
-            <div class="boks-liten-tall">@Model.PPHPT</div>
-            <div class="boks-liten-tekst">PPHPT</div>
-        </div>
-    </div>
+<div class="index-wrapper">
+    @await Html.PartialAsync("Partials/Input.cshtml")
+    @await Html.PartialAsync("Partials/Boxes.cshtml")
 </div>

@@ -6,22 +6,39 @@ body {
     padding-bottom: 20px;
 }
 
-.wrapper {
+.index-wrapper {
+    margin: auto;
+    max-width: 900px;
+    height: 90vh;
     display: flex;
+    flex-direction: column;
     justify-content: center;
-    flex-direction: row;
 }
 
-.skygge {
+.index-div-wrapper {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+    margin-top: 25px;
+}
+
+.visning-element {
+    border-radius: 2px;
+    background-color: #456597;
     box-shadow: 3px 3px 10px #242424;
+    color: beige;
+}
+
+.visning-element-invertert {
+    border-radius: 2px;
+    background-color: beige;
+    box-shadow: 3px 3px 10px #242424;
+    color: #456597;
 }
 
 .boks-liten {
-    border-radius: 2px;
-    background-color: #456597;
     height: 150px;
     width: 280px;
-    margin: 0.6em;
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
@@ -52,6 +69,38 @@ body {
     font-weight: bold;
     color: beige;
 }
+
+.barcode-input-wrapper {
+    border-radius: 2px;
+    background-color: beige;
+    box-shadow: 3px 3px 10px #242424;
+}
+
+.barcode-input {
+    margin: auto;
+    color: #456597;
+    background-color: beige;
+    width: 500px;
+    height: 50px;
+    border: none;
+    font-size: 24pt;
+    font-weight: bold;
+}
+
+.barcode-input-wrapper button {
+    margin: auto;
+    color: #456597;
+    background-color: beige;
+    vertical-align: middle;
+    width: 60px;
+    height: 50px;
+    border: none;
+}
+
+.barcode-input-wrapper button i {
+    font-size: 45px;
+}
+
 /* Wrapping element */
 /* Set some basic padding to keep content from hitting the edges */
 .body-content {
