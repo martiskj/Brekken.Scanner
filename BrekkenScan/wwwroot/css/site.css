@@ -6,15 +6,52 @@ body {
     padding-bottom: 20px;
 }
 
-#velkommen {
+.wrapper {
     display: flex;
     justify-content: center;
+    flex-direction: row;
 }
 
-#velkommen h1 {
-    color: antiquewhite;
+.skygge {
+    box-shadow: 3px 3px 10px #1f1f1f;
 }
 
+.boks-liten {
+    border-radius: 3px;
+    background-color: #456597;
+    height: 150px;
+    width: 280px;
+    margin: 0.6em;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    align-items: center;
+}
+
+.boks-liten i {
+    color: beige;
+    font-size: 55px;
+    margin-right: 25px;
+}
+
+.boks-liten-innhold {
+}
+
+.boks-liten-tall {
+    font-weight: bold;
+    color: beige;
+    font-size: 40pt;
+    margin-bottom: 0;
+    text-align: center;
+}
+
+.boks-liten-tekst {
+    position: relative;
+    top: -15px;
+    margin-top: 0;
+    font-weight: bold;
+    color: beige;
+}
 /* Wrapping element */
 /* Set some basic padding to keep content from hitting the edges */
 .body-content {
@@ -22,26 +59,3 @@ body {
     padding-right: 15px;
 }
 
-/* Carousel */
-.carousel-caption p {
-    font-size: 20px;
-    line-height: 1.4;
-}
-
-/* Make .svg files in the carousel display properly in older browsers */
-.carousel-inner .item img[src$=".svg"] {
-    width: 100%;
-}
-
-/* QR code generator */
-#qrCode {
-    margin: 15px;
-}
-
-/* Hide/rearrange for smaller screens */
-@media screen and (max-width: 767px) {
-    /* Hide captions */
-    .carousel-caption {
-        display: none;
-    }
-}
