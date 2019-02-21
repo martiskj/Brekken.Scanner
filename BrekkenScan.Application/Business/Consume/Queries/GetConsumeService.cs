@@ -13,7 +13,7 @@ namespace BrekkenScan.Application.Consume
         public async Task<ConsumeModel> GetConsume() => new ConsumeModel
         {
             Total = await _context.Consume.CountAsync(),
-            Tonight = await _context.Consume.CountAsync(c => c.Date > System.DateTime.Now.AddHours(-13)),
+            Tonight = await _context.Consume.CountAsync(c => c.TimeStamp > System.DateTime.Now.AddHours(-13)),
         };
     }
 }

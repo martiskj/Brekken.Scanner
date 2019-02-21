@@ -14,7 +14,7 @@ namespace BrekkenScan.Business.Business.Consume.Commands
         {
             await _context.Consume.AddAsync(new Domain.Entities.Consume
             {
-                Date = DateTime.Now,
+                TimeStamp = DateTime.Now,
                 Barcode = barcode,
             });
             await _context.SaveChangesAsync();
