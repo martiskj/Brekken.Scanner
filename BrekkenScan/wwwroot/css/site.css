@@ -101,6 +101,17 @@ body {
     font-size: 45px;
 }
 
+.wordcloud {
+    height: 400px;
+    width: 100%;
+    color: beige;
+    margin-bottom: 20px;
+}
+
+.wordcloud svg {
+    color: beige;
+}
+
 /* Wrapping element */
 /* Set some basic padding to keep content from hitting the edges */
 .body-content {
