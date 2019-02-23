@@ -1,6 +1,6 @@
-﻿namespace BrekkenScan.ViewModels
+﻿namespace BrekkenScan.Web.Models.Consume
 {
-    public class IndexModel
+    public class ConsumeViewModel
     {
         public int Total { get; set; }
 

@@ -1,3 +1,5 @@
+using BrekkenScan.Application.Consume;
+using BrekkenScan.Business.Business.Consume.Commands;
 using BrekkenScan.Domain.Infrastructure;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -26,12 +28,18 @@ namespace BrekkenScan.Web
                 options.MinimumSameSitePolicy = SameSiteMode.None;
             });
 
-            services.RegisterBrekkenServices();
-
+            RegisterBrekkenServices(services);
             services.AddDbContext<BrekkenScanDbContext>(opt =>
                 opt.UseSqlServer(Configuration.GetConnectionString("BrekkenDatabase"), b => b.MigrationsAssembly("BrekkenScan.Persistence")));
 
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
+        }
+
+        private IServiceCollection RegisterBrekkenServices(IServiceCollection services)
+        {
+            services.AddScoped<ViewConsumeService>();
+            services.AddScoped<RegisterConsumeService>();
+            return services;
         }
 
         public void Configure(IApplicationBuilder app, IHostingEnvironment env)

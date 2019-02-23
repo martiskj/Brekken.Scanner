@@ -4,18 +4,18 @@ using System.Threading.Tasks;
 
 namespace BrekkenScan.Business.Business.Consume.Commands
 {
-    public class PostConsumeService
+    public class RegisterConsumeService
     {
         private readonly BrekkenScanDbContext _context;
 
-        public PostConsumeService(BrekkenScanDbContext context) => _context = context;
+        public RegisterConsumeService(BrekkenScanDbContext context) => _context = context;
 
-        public async Task PostConsume(string barcode)
+        public async Task RegisterConsume(ConsumeModel consume)
         {
             await _context.Consume.AddAsync(new Domain.Entities.Consume
             {
                 TimeStamp = DateTime.Now,
-                Barcode = barcode,
+                Barcode = consume.Barcode,
             });
             await _context.SaveChangesAsync();
         }
