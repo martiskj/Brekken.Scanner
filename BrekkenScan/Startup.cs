@@ -64,10 +64,10 @@ namespace BrekkenScan.Web
                     template: "{controller=Home}/{action=Index}/{id?}");
             });
 
-            using (var scope = app.ApplicationServices.GetService<IServiceScopeFactory>().CreateScope())
-            {
-                scope.ServiceProvider.GetRequiredService<BrekkenScanDbContext>().Database.Migrate();
-            }
+            //using (var scope = app.ApplicationServices.GetService<IServiceScopeFactory>().CreateScope())
+            //{
+            //    scope.ServiceProvider.GetRequiredService<BrekkenScanDbContext>().Database.Migrate();
+            //}
         }
     }
 }
