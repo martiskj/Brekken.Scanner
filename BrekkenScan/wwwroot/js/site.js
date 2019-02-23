@@ -4,6 +4,6 @@
 // Write your Javascript code.
 
 
-window.onload = function() {
-  var input = document.getElementById("barcode-input").focus();
-}
+window.onload = function () {
+    var input = document.getElementById("barcode-input").focus();
+};
