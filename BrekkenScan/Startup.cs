@@ -22,7 +22,6 @@ namespace BrekkenScan.Web
         {
             services.Configure<CookiePolicyOptions>(options =>
             {
-                // This lambda determines whether user consent for non-essential cookies is needed for a given request.
                 options.CheckConsentNeeded = context => true;
                 options.MinimumSameSitePolicy = SameSiteMode.None;
             });
@@ -30,12 +29,11 @@ namespace BrekkenScan.Web
             services.RegisterBrekkenServices();
 
             services.AddDbContext<BrekkenScanDbContext>(opt =>
-                opt.UseInMemoryDatabase("BrekkenDatabase"));
+                opt.UseSqlServer(Configuration.GetConnectionString("BrekkenDatabase"), b => b.MigrationsAssembly("BrekkenScan.Persistence")));
 
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
         }
 
-        // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IHostingEnvironment env)
         {
             if (env.IsDevelopment())
