@@ -1,4 +1,4 @@
-﻿namespace BrekkenScan.Application.Consume
+﻿namespace BrekkenScan.Business.Business.Consume.Queries
 {
     public class ConsumeModel
     {

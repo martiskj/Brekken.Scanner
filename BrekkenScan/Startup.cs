@@ -1,6 +1,8 @@
-using BrekkenScan.Application.Consume;
+using BrekkenScan.Business;
 using BrekkenScan.Business.Business.Consume.Commands;
-using BrekkenScan.Domain.Infrastructure;
+using BrekkenScan.Business.Business.Consume.Queries;
+using BrekkenScan.Domain;
+using BrekkenScan.Persistence;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
@@ -28,17 +30,14 @@ namespace BrekkenScan.Web
                 options.MinimumSameSitePolicy = SameSiteMode.None;
             });
 
-            RegisterBrekkenServices(services);
-            services.AddDbContext<BrekkenScanDbContext>(opt =>
-                opt.UseSqlServer(Configuration.GetConnectionString("BrekkenDatabase"), b => b.MigrationsAssembly("BrekkenScan.Persistence")));
-
+            AddApplicationServices(services);
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
         }
 
-        private IServiceCollection RegisterBrekkenServices(IServiceCollection services)
+        private IServiceCollection AddApplicationServices(IServiceCollection services)
         {
-            services.AddScoped<ViewConsumeService>();
-            services.AddScoped<RegisterConsumeService>();
+            services.AddApplicationDbContext(Configuration.GetConnectionString("BrekkenDatabase"));
+            services.AddBusinessServices();
             return services;
         }
 
@@ -66,7 +65,7 @@ namespace BrekkenScan.Web
 
             using (var scope = app.ApplicationServices.GetService<IServiceScopeFactory>().CreateScope())
             {
-                scope.ServiceProvider.GetRequiredService<BrekkenScanDbContext>().Database.Migrate();
+                scope.ServiceProvider.GetRequiredService<ApplicationDbContext>().Database.Migrate();
             }
         }
     }

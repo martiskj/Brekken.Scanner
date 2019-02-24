@@ -1,14 +1,14 @@
 ﻿using System.Threading.Tasks;
-using BrekkenScan.Domain.Infrastructure;
+using BrekkenScan.Domain;
 using Microsoft.EntityFrameworkCore;
 
-namespace BrekkenScan.Application.Consume
+namespace BrekkenScan.Business.Business.Consume.Queries
 {
-    public class ViewConsumeService
+    public class ConsumeViewService
     {
-        private readonly BrekkenScanDbContext _context;
+        private readonly ApplicationDbContext _context;
 
-        public ViewConsumeService(BrekkenScanDbContext context) => _context = context;
+        public ConsumeViewService(ApplicationDbContext context) => _context = context;
 
         public async Task<ConsumeModel> GetConsume() => new ConsumeModel
         {
