@@ -1,8 +1,7 @@
-﻿@model BrekkenScan.ViewModels.IndexModel
-
+﻿@model BrekkenScan.Web.Models.Consume.ConsumeViewModel
 
 <div class="index-wrapper">
     @await Html.PartialAsync("Partials/Wordcloud.cshtml")
-    @await Html.PartialAsync("Partials/Input.cshtml")
-    @await Html.PartialAsync("Partials/Boxes.cshtml")
+    @await Html.PartialAsync("Partials/ConsumeRegister.cshtml", new Web.Models.Consume.ConsumeEditModel())
+    @await Html.PartialAsync("Partials/ConsumeView.cshtml", @Model)
 </div>

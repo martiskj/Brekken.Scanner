@@ -1,3 +1,5 @@
+using BrekkenScan.Application.Consume;
+using BrekkenScan.Business.Business.Consume.Commands;
 using BrekkenScan.Domain.Infrastructure;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -22,20 +24,24 @@ namespace BrekkenScan.Web
         {
             services.Configure<CookiePolicyOptions>(options =>
             {
-                // This lambda determines whether user consent for non-essential cookies is needed for a given request.
                 options.CheckConsentNeeded = context => true;
                 options.MinimumSameSitePolicy = SameSiteMode.None;
             });
 
-            services.RegisterBrekkenServices();
-
+            RegisterBrekkenServices(services);
             services.AddDbContext<BrekkenScanDbContext>(opt =>
-                opt.UseInMemoryDatabase("BrekkenDatabase"));
+                opt.UseSqlServer(Configuration.GetConnectionString("BrekkenDatabase"), b => b.MigrationsAssembly("BrekkenScan.Persistence")));
 
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
         }
 
-        // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
+        private IServiceCollection RegisterBrekkenServices(IServiceCollection services)
+        {
+            services.AddScoped<ViewConsumeService>();
+            services.AddScoped<RegisterConsumeService>();
+            return services;
+        }
+
         public void Configure(IApplicationBuilder app, IHostingEnvironment env)
         {
             if (env.IsDevelopment())
@@ -57,6 +63,11 @@ namespace BrekkenScan.Web
                     name: "default",
                     template: "{controller=Home}/{action=Index}/{id?}");
             });
+
+            using (var scope = app.ApplicationServices.GetService<IServiceScopeFactory>().CreateScope())
+            {
+                scope.ServiceProvider.GetRequiredService<BrekkenScanDbContext>().Database.Migrate();
+            }
         }
-}
+    }
 }
