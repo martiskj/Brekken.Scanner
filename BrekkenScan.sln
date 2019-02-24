@@ -3,13 +3,13 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.28307.421
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BrekkenScan.Web", "BrekkenScan\BrekkenScan.Web.csproj", "{75B5FCA3-AC35-4347-9865-9317B11F86AC}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BrekkenScan.Web", "BrekkenScan.Web\BrekkenScan.Web.csproj", "{75B5FCA3-AC35-4347-9865-9317B11F86AC}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Presentation", "Presentation", "{03E80E51-F99E-4306-BCE9-6227A497CC41}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Core", "Core", "{6BB73A19-5C82-4677-8947-7EB0F37BC0DB}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BrekkenScan.Business", "BrekkenScan.Application\BrekkenScan.Business.csproj", "{DD33F857-E6F4-4355-91B7-E547AABFB3A4}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BrekkenScan.Business", "BrekkenScan.Business\BrekkenScan.Business.csproj", "{DD33F857-E6F4-4355-91B7-E547AABFB3A4}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BrekkenScan.Domain", "BrekkenScan.Domain\BrekkenScan.Domain.csproj", "{106130F6-D920-4D64-AE61-DA51BFCE1449}"
 EndProject
