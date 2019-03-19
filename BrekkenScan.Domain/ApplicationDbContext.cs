@@ -11,5 +11,7 @@ namespace BrekkenScan.Domain
         }
 
         public DbSet<Consume> Consume { get; set; }
+
+        public DbSet<Brand> Brand { get; set; }
     }
 }

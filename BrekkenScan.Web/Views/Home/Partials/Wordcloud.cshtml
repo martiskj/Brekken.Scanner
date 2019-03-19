@@ -1,4 +1,6 @@
-﻿<div class="index-div-wrapper wordcloud-wrapper">
+﻿@model BrekkenScan.Web.Models.Consume.ConsumeViewModel
+
+<div class="index-div-wrapper wordcloud-wrapper">
     <div class="wordcloud">
     </div>
 </div>
@@ -9,7 +11,13 @@
 
 <script type="text/javascript">
 
-    var tonight = ["Isbjørn", "Ringnes pilsner", "Asbolute Vodka", "Fireball", "Isbjørn", "Isbjørn", "Isbjørn", "Isbjørn", "Isbjørn", "Isbjørn", "Isbjørn", "Fireball", "Fireball"];
+    var tonight = [];
+    @foreach (var d in Model.Tonight)
+    {
+        @:tonight.push('@Html.Raw(d)');
+    }
+
+    console.log(tonight);
 
     var scale = function (num) {
         return 1 - Math.pow(2, -num);

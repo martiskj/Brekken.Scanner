@@ -16,7 +16,7 @@ namespace BrekkenScan.Controllers
             {
                 Tonight = consume.Tonight,
                 Total = consume.Total,
-                PPHPT = 1.23m,
+                PPHPT = 0,
             });
         }
 
