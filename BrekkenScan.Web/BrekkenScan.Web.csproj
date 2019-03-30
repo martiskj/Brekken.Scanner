@@ -13,7 +13,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\BrekkenScan.Application\BrekkenScan.Business.csproj" />
+    <ProjectReference Include="..\BrekkenScan.Business\BrekkenScan.Business.csproj" />
     <ProjectReference Include="..\BrekkenScan.Domain\BrekkenScan.Domain.csproj" />
     <ProjectReference Include="..\BrekkenScan.Persistence\BrekkenScan.Persistence.csproj" />
   </ItemGroup>

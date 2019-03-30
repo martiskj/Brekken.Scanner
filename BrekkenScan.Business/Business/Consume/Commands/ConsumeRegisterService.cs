@@ -1,16 +1,16 @@
-﻿using BrekkenScan.Domain.Infrastructure;
+﻿using BrekkenScan.Domain;
 using System;
 using System.Threading.Tasks;
 
 namespace BrekkenScan.Business.Business.Consume.Commands
 {
-    public class RegisterConsumeService
+    public class ConsumeRegisterService
     {
-        private readonly BrekkenScanDbContext _context;
+        private readonly ApplicationDbContext _context;
 
-        public RegisterConsumeService(BrekkenScanDbContext context) => _context = context;
+        public ConsumeRegisterService(ApplicationDbContext context) => _context = context;
 
-        public async Task RegisterConsume(ConsumeModel consume)
+        public async Task Register(ConsumeModel consume)
         {
             await _context.Consume.AddAsync(new Domain.Entities.Consume
             {

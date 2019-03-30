@@ -1,5 +1,5 @@
-﻿using BrekkenScan.Application.Consume;
-using BrekkenScan.Business.Business.Consume.Commands;
+﻿using BrekkenScan.Business.Business.Consume.Commands;
+using BrekkenScan.Business.Business.Consume.Queries;
 using BrekkenScan.Web.Models.Consume;
 using Microsoft.AspNetCore.Mvc;
 using System.Threading.Tasks;
@@ -9,26 +9,26 @@ namespace BrekkenScan.Controllers
 {
     public class HomeController : Controller
     {
-        public async Task<ActionResult> Index([FromServices] ViewConsumeService service)
+        public async Task<ActionResult> Index([FromServices] ConsumeViewService service)
         {
             var consume = await service.GetConsume();
             return View(new ConsumeViewModel
             {
                 Tonight = consume.Tonight,
                 Total = consume.Total,
-                PPHPT = 1.23m,
+                PPHPT = 0,
             });
         }
 
         public async Task<ActionResult> RegisterConsume(
             ConsumeEditModel consume,
-            [FromServices] RegisterConsumeService service)
+            [FromServices] ConsumeRegisterService service)
         {
-            await service.RegisterConsume(new ConsumeModel
+            await service.Register(new ConsumeModel
             {
                 Barcode = consume.Barcode,
             });
-            return Redirect("Index");
+            return Redirect("/");
         }
     }
 }

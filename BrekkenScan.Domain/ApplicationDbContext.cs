@@ -1,15 +1,17 @@
 ﻿using BrekkenScan.Domain.Entities;
 using Microsoft.EntityFrameworkCore;
 
-namespace BrekkenScan.Domain.Infrastructure
+namespace BrekkenScan.Domain
 {
-    public class BrekkenScanDbContext : DbContext
+    public class ApplicationDbContext : DbContext
     {
-        public BrekkenScanDbContext(DbContextOptions options)
+        public ApplicationDbContext(DbContextOptions options)
             : base(options)
         {
         }
 
         public DbSet<Consume> Consume { get; set; }
+
+        public DbSet<Brand> Brand { get; set; }
     }
 }
