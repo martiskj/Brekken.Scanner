@@ -1,0 +1,8 @@
+﻿@page
+@model BrekkenScan.Web.Pages.IndexModel
+
+<div class="index-wrapper">
+    @await Html.PartialAsync("Home/_Wordcloud.cshtml", @Model)
+    @await Html.PartialAsync("Home/_ConsumeRegister.cshtml", @Model)
+    @await Html.PartialAsync("Home/_ConsumeView.cshtml", @Model)
+</div>
