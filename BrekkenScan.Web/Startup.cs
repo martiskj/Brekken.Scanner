@@ -1,6 +1,4 @@
 using BrekkenScan.Business;
-using BrekkenScan.Business.Business.Consume.Commands;
-using BrekkenScan.Business.Business.Consume.Queries;
 using BrekkenScan.Domain;
 using BrekkenScan.Persistence;
 using Microsoft.AspNetCore.Builder;
@@ -31,7 +29,12 @@ namespace BrekkenScan.Web
             });
 
             AddApplicationServices(services);
-            services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
+            services.AddMvc()
+                .SetCompatibilityVersion(CompatibilityVersion.Version_2_1)
+                .AddRazorPagesOptions(options =>
+                {
+                    options.Conventions.AuthorizeFolder("/").AllowAnonymousToFolder("/Account");
+                });
         }
 
         private IServiceCollection AddApplicationServices(IServiceCollection services)
@@ -53,9 +56,13 @@ namespace BrekkenScan.Web
                 app.UseExceptionHandler("/Error");
             }
 
+            app.UseHsts();
+            app.UseHttpsRedirection();
+
             app.UseStaticFiles();
             app.UseCookiePolicy();
 
+            app.UseAuthentication();
             app.UseMvc();
 
             using (var scope = app.ApplicationServices.GetService<IServiceScopeFactory>().CreateScope())

@@ -6,6 +6,14 @@ body {
     padding-bottom: 20px;
 }
 
+h2 {
+    color: beige;
+}
+
+label{
+    color: beige;
+}
+
 .index-wrapper {
     margin: auto;
     max-width: 900px;
