@@ -1,4 +1,5 @@
 ﻿using BrekkenScan.Domain;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 
@@ -10,6 +11,9 @@ namespace BrekkenScan.Persistence
         {
             services.AddDbContext<ApplicationDbContext>(opt =>
                 opt.UseSqlServer(connection, b => b.MigrationsAssembly("BrekkenScan.Persistence")));
+
+            services.AddIdentity<IdentityUser, IdentityRole>()
+                .AddEntityFrameworkStores<ApplicationDbContext>();
             return services;
         }
     }
