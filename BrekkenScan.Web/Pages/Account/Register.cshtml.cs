@@ -1,7 +1,6 @@
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
-using System.ComponentModel.DataAnnotations;
 using System.Threading.Tasks;
 
 namespace BrekkenScan.Web.Pages.Account
@@ -26,6 +25,11 @@ namespace BrekkenScan.Web.Pages.Account
         public string Password { get; set; }
 
         public async Task<IActionResult> OnPost()
+        {
+            return Page();
+        }
+
+        private async Task<IActionResult> Register()
         {
             var user = new IdentityUser { UserName = Name };
             var result = await userManager.CreateAsync(user, Password);
