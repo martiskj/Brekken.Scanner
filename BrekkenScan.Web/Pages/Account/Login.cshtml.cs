@@ -7,14 +7,10 @@ namespace BrekkenScan.Web.Pages.Account
 {
     public class LoginModel : PageModel
     {
-        private readonly UserManager<IdentityUser> userManager;
         private readonly SignInManager<IdentityUser> signInManager;
 
-        public LoginModel(
-            UserManager<IdentityUser> userManager,
-            SignInManager<IdentityUser> signInManager)
+        public LoginModel(SignInManager<IdentityUser> signInManager)
         {
-            this.userManager = userManager;
             this.signInManager = signInManager;
         }
 

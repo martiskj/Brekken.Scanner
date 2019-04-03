@@ -24,7 +24,7 @@ namespace BrekkenScan.Web.Pages.Account
         [BindProperty]
         public string Password { get; set; }
 
-        public async Task<IActionResult> OnPost()
+        public IActionResult OnPost()
         {
             return Page();
         }
