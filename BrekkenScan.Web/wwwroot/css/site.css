@@ -2,13 +2,81 @@
 for details on configuring this project to bundle and minify static web assets. */
 
 h2 {
+    font-size: 40px;
     color: beige;
+    padding-bottom: 10px;
 }
 
 body {
     background-color: #1e2e47;
-    padding-top: 50px;
-    padding-bottom: 20px;
+}
+
+nav {
+    display: block;
+    width: 200px;
+    height: 100vh;
+    position: absolute;
+}
+
+nav .nav-hamburger {
+    padding: 10px 0 0 20px;
+}
+
+nav .bar1, nav .bar2, nav .bar3 {
+    width: 35px;
+    height: 5px;
+    background-color: beige;
+    margin: 6px 0;
+    transition: 0.4s;
+}
+
+/* Rotate first bar */
+.change-menu .bar1 {
+    -webkit-transform: rotate(-45deg) translate(-9px, 6px);
+    transform: rotate(-45deg) translate(-9px, 6px);
+}
+
+/* Fade out the second bar */
+.change-menu .bar2 {
+    opacity: 0;
+}
+
+/* Rotate last bar */
+.change-menu .bar3 {
+    -webkit-transform: rotate(45deg) translate(-8px, -8px);
+    transform: rotate(45deg) translate(-8px, -8px);
+}
+
+.show-nav {
+    visibility: visible; /* shows sub-menu */
+    opacity: 1;
+    z-index: 1;
+    transform: translateY(0%);
+    transition-delay: 0s, 0s, 0.3s;
+}
+
+nav ul {
+    visibility: hidden; /* hides sub-menu */
+    opacity: 0;
+    transform: translateY(-2em);
+    z-index: -1;
+    transition: all 0.3s ease-in-out 0s, visibility 0s linear 0.3s, z-index 0s linear 0.01s;
+    list-style-type: none;
+    padding-left: 20px;
+}
+
+nav li {
+    padding-top: 10px;
+}
+
+nav a {
+    color: beige;
+    font-size: 25px;
+}
+
+nav a:hover {
+    color: antiquewhite;
+    text-decoration: none;
 }
 
 h2 {
@@ -145,4 +213,19 @@ label{
 
 .button-back {
     float: right;
+}
+
+.brand-list-wrapper,
+.brand-list-wrapper a,
+.brand-list-wrapper input,
+.login-wrapper,
+.login-wrapper a,
+.login-wrapper input,
+.login-wrapper button {
+    font-size: 20px;
+}
+
+.brand-list-wrapper input,
+.login-wrapper input {
+        height: 43px;
 }

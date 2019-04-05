@@ -5,13 +5,13 @@ using Microsoft.EntityFrameworkCore;
 
 namespace BrekkenScan.Business.Business.Consume.Get
 {
-    public class ConsumeViewService
+    public class ConsumeReadService
     {
         private readonly ApplicationDbContext _db;
 
-        public ConsumeViewService(ApplicationDbContext db) => _db = db;
+        public ConsumeReadService(ApplicationDbContext db) => _db = db;
 
-        public async Task<ConsumeViewModel> GetConsume() => new ConsumeViewModel
+        public async Task<ConsumeReadModel> GetConsume() => new ConsumeReadModel
         {
             Total = await _db.Consume.CountAsync(),
             Tonight = _db.Consume

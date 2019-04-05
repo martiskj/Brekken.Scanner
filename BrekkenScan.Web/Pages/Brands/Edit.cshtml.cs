@@ -11,11 +11,11 @@ namespace BrekkenScan.Web.Pages.Brands
 {
     public class EditBrandsModel : PageModel
     {
-        private readonly BrandViewService getter;
+        private readonly BrandReadService getter;
         private readonly BrandUpdateService updater;
 
         public EditBrandsModel(
-            BrandViewService getter,
+            BrandReadService getter,
             BrandUpdateService updater)
         {
             this.getter = getter;
@@ -23,7 +23,7 @@ namespace BrekkenScan.Web.Pages.Brands
         }
 
         [BindProperty]
-        public BrandViewModel Brand { get; set; }
+        public BrandReadModel Brand { get; set; }
 
         public IActionResult OnGet(int id)
         {

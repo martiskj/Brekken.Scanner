@@ -1,4 +1,5 @@
-﻿using BrekkenScan.Business.Business.Brand.Get;
+﻿using BrekkenScan.Business.Business.Brand.Create;
+using BrekkenScan.Business.Business.Brand.Get;
 using BrekkenScan.Business.Business.Brand.Update;
 using BrekkenScan.Business.Business.Consume.Create;
 using BrekkenScan.Business.Business.Consume.Get;
@@ -10,11 +11,12 @@ namespace BrekkenScan.Business
     {
         public static IServiceCollection AddBusinessServices(this IServiceCollection services)
         {
-            services.AddScoped<ConsumeViewService>();
             services.AddScoped<ConsumeCreateService>();
+            services.AddScoped<ConsumeReadService>();
 
+            services.AddScoped<BrandCreateService>();
+            services.AddScoped<BrandReadService>();
             services.AddScoped<BrandUpdateService>();
-            services.AddScoped<BrandViewService>();
             return services;
         }
     }

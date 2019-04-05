@@ -4,18 +4,18 @@ using System.Linq;
 
 namespace BrekkenScan.Business.Business.Brand.Get
 {
-    public class BrandViewService
+    public class BrandReadService
     {
         private readonly ApplicationDbContext db;
 
-        public BrandViewService(ApplicationDbContext db)
+        public BrandReadService(ApplicationDbContext db)
         {
             this.db = db;
         }
-        public IEnumerable<BrandViewModel> GetBrands(BrandFilter filter)
+        public IEnumerable<BrandReadModel> GetBrands(BrandFilter filter)
         {
             return db.Brand.Filter(filter)
-                .Select(b => new BrandViewModel
+                .Select(b => new BrandReadModel
                 {
                     Id = b.Id,
                     Barcode = b.Barcode,
@@ -24,7 +24,7 @@ namespace BrekkenScan.Business.Business.Brand.Get
                 .ToList();
         }
 
-        public BrandViewModel GetBrand(int id)
+        public BrandReadModel GetBrand(int id)
         {
             return GetBrands(new BrandFilter
             {

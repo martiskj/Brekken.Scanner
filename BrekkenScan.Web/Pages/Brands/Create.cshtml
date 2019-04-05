@@ -1,15 +1,14 @@
-﻿@page "{id:int}"
-@model BrekkenScan.Web.Pages.Brands.EditBrandsModel
+﻿@page
+@model BrekkenScan.Web.Pages.Brands.CreateModel
 @{
-    ViewData["Title"] = "EditBrands";
+    ViewData["Title"] = "Create";
 }
 
 <div class="login-wrapper">
 
-    <h2>Endre på @Model.Brand.Name</h2>
+    <h2>Opprett nytt produkt</h2>
 
     <form method="post">
-        <input type="hidden" asp-for="Brand.Id" />
         <div class="form-group">
             <label>Strekkode: </label>
             <input class="form-control" asp-for="Brand.Barcode" type="text" />
@@ -24,6 +23,5 @@
         </div>
     </form>
 
-    
-</div>
 
+</div>

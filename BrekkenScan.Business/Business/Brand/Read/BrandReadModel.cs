@@ -1,6 +1,6 @@
 ﻿namespace BrekkenScan.Business.Business.Brand.Get
 {
-    public class BrandViewModel
+    public class BrandReadModel
     {
         public int Id { get; set; }
 

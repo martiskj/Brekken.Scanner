@@ -12,10 +12,10 @@ namespace BrekkenScan.Web.Pages
 {
     public class IndexModel : PageModel
     {
-        private readonly ConsumeViewService reader;
+        private readonly ConsumeReadService reader;
         private readonly ConsumeCreateService register;
 
-        public IndexModel(ConsumeViewService reader, ConsumeCreateService register)
+        public IndexModel(ConsumeReadService reader, ConsumeCreateService register)
         {
             this.reader = reader;
             this.register = register;

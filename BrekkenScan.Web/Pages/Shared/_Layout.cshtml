@@ -18,9 +18,27 @@
     </environment>
 </head>
 <body>
+    <nav>
+        <div class="nav-hamburger" onclick="toggleNavbar(this)">
+            <div class="bar1"></div>
+            <div class="bar2"></div>
+            <div class="bar3"></div>
+        </div>
+        <ul id="navbar-visning">
+                <li><a asp-page="../Index"><i class="fas fa-glass-cheers"></i> Startsiden</a></li>
+                <li><a asp-page="Brands/List"><i class="fas fa-archive"></i> Produkter</a></li>
+        </ul>
+    </nav>
     <div class="container body-content">
         @RenderBody()
     </div>
     @RenderSection("Scripts", required: false)
 </body>
 </html>
+
+<script>
+    function toggleNavbar(x) {
+        x.classList.toggle("change-menu");
+        document.getElementById('navbar-visning').classList.toggle("show-nav")
+    }
+</script>

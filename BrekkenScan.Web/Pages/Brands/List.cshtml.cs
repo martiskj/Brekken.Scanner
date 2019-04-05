@@ -8,9 +8,9 @@ namespace BrekkenScan.Web.Pages.Brands
 {
     public class GetBrandsModel : PageModel
     {
-        private readonly BrandViewService service;
+        private readonly BrandReadService service;
 
-        public GetBrandsModel(BrandViewService service)
+        public GetBrandsModel(BrandReadService service)
         {
             this.service = service;
         }
@@ -18,7 +18,7 @@ namespace BrekkenScan.Web.Pages.Brands
         [BindProperty(SupportsGet = true)]
         public string SearchCriteria { get; set; }
 
-        public IEnumerable<BrandViewModel> Brands { get; set; }
+        public IEnumerable<BrandReadModel> Brands { get; set; }
 
         public void OnGet()
         {
