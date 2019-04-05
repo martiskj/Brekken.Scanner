@@ -2,15 +2,15 @@
 using System;
 using System.Threading.Tasks;
 
-namespace BrekkenScan.Business.Business.Consume.Commands
+namespace BrekkenScan.Business.Business.Consume.Create
 {
-    public class ConsumeRegisterService
+    public class ConsumeCreateService
     {
         private readonly ApplicationDbContext _context;
 
-        public ConsumeRegisterService(ApplicationDbContext context) => _context = context;
+        public ConsumeCreateService(ApplicationDbContext context) => _context = context;
 
-        public async Task Register(ConsumeModel consume)
+        public async Task Register(ConsumeCreateModel consume)
         {
             await _context.Consume.AddAsync(new Domain.Entities.Consume
             {

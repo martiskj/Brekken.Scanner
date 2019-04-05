@@ -1,4 +1,4 @@
-﻿using BrekkenScan.Business.Business.Brand.Queries;
+﻿using BrekkenScan.Business.Business.Brand.Get;
 using BrekkenScan.Domain.Entities;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
@@ -18,11 +18,14 @@ namespace BrekkenScan.Web.Pages.Brands
         [BindProperty(SupportsGet = true)]
         public string SearchCriteria { get; set; }
 
-        public IEnumerable<BrandModel> Brands { get; set; }
+        public IEnumerable<BrandViewModel> Brands { get; set; }
 
         public void OnGet()
         {
-            Brands = service.GetBrands(SearchCriteria);
+            Brands = service.GetBrands(new BrandFilter
+            {
+                NameOrBarcode = SearchCriteria
+            });
         }
     }
 }

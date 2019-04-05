@@ -1,6 +1,7 @@
-﻿using BrekkenScan.Business.Business.Brand.Queries;
-using BrekkenScan.Business.Business.Consume.Commands;
-using BrekkenScan.Business.Business.Consume.Queries;
+﻿using BrekkenScan.Business.Business.Brand.Get;
+using BrekkenScan.Business.Business.Brand.Update;
+using BrekkenScan.Business.Business.Consume.Create;
+using BrekkenScan.Business.Business.Consume.Get;
 using Microsoft.Extensions.DependencyInjection;
 
 namespace BrekkenScan.Business
@@ -10,7 +11,9 @@ namespace BrekkenScan.Business
         public static IServiceCollection AddBusinessServices(this IServiceCollection services)
         {
             services.AddScoped<ConsumeViewService>();
-            services.AddScoped<ConsumeRegisterService>();
+            services.AddScoped<ConsumeCreateService>();
+
+            services.AddScoped<BrandUpdateService>();
             services.AddScoped<BrandViewService>();
             return services;
         }

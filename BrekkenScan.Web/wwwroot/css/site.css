@@ -143,11 +143,6 @@ label{
     color: beige;
 }
 
-.sokefelt {
-    display: flex;
-    margin-bottom: 30px;
-}
-
-.sokefelt input {
-    width: 50%;
+.button-back {
+    float: right;
 }

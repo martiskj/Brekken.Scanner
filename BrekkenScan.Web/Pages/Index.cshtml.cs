@@ -3,8 +3,8 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Threading.Tasks;
-using BrekkenScan.Business.Business.Consume.Commands;
-using BrekkenScan.Business.Business.Consume.Queries;
+using BrekkenScan.Business.Business.Consume.Create;
+using BrekkenScan.Business.Business.Consume.Get;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 
@@ -13,9 +13,9 @@ namespace BrekkenScan.Web.Pages
     public class IndexModel : PageModel
     {
         private readonly ConsumeViewService reader;
-        private readonly ConsumeRegisterService register;
+        private readonly ConsumeCreateService register;
 
-        public IndexModel(ConsumeViewService reader, ConsumeRegisterService register)
+        public IndexModel(ConsumeViewService reader, ConsumeCreateService register)
         {
             this.reader = reader;
             this.register = register;
@@ -44,7 +44,7 @@ namespace BrekkenScan.Web.Pages
         {
             if (ModelState.IsValid)
             {
-                await register.Register(new Business.Business.Consume.Commands.ConsumeModel
+                await register.Register(new Business.Business.Consume.Create.ConsumeCreateModel
                 {
                     Barcode = this.Barcode,
                 });

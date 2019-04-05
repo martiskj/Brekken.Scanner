@@ -3,7 +3,7 @@ using System.Threading.Tasks;
 using BrekkenScan.Domain;
 using Microsoft.EntityFrameworkCore;
 
-namespace BrekkenScan.Business.Business.Consume.Queries
+namespace BrekkenScan.Business.Business.Consume.Get
 {
     public class ConsumeViewService
     {
@@ -11,7 +11,7 @@ namespace BrekkenScan.Business.Business.Consume.Queries
 
         public ConsumeViewService(ApplicationDbContext db) => _db = db;
 
-        public async Task<ConsumeModel> GetConsume() => new ConsumeModel
+        public async Task<ConsumeViewModel> GetConsume() => new ConsumeViewModel
         {
             Total = await _db.Consume.CountAsync(),
             Tonight = _db.Consume
