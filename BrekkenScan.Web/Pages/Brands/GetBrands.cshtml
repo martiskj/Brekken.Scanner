@@ -1,0 +1,40 @@
+﻿@page "/Brands"
+@model BrekkenScan.Web.Pages.Brands.GetBrandsModel
+@{
+    ViewData["Title"] = "GetBrands";
+}
+
+<h2>Produkter</h2>
+
+<form method="get">
+    <div class="form-group">
+        <div class="input-group">
+            <input type="search" asp-for="SearchCriteria" id="brand-search" class="form-control" placeholder="Strekkode eller navn" />
+            <span class="input-group-btn">
+                <button type="submit" class="btn btn-default">
+                    <i class="glyphicon glyphicon-search"></i>
+                </button>
+            </span>
+        </div>
+    </div>
+</form>
+
+<table class="table table-brands">
+    <tr>
+        <th>Strekkode</th>
+        <th>Navn</th>
+    </tr>
+    @foreach (var b in @Model.Brands)
+    {
+    <tr>
+        <td>@b.Barcode</td>
+        <td>@b.Name</td>
+    </tr>
+    }
+</table>
+
+<script>
+    window.onload = function () {
+        var input = document.getElementById("brand-search").focus();
+    };
+</script>

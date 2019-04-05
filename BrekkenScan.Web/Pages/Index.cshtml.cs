@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Threading.Tasks;
 using BrekkenScan.Business.Business.Consume.Commands;
@@ -27,6 +28,7 @@ namespace BrekkenScan.Web.Pages
         public decimal PPHPT { get; set; }
 
         [BindProperty]
+        [RegularExpression("^[0-9 ]+$")]
         public string Barcode { get; set; }
 
         public async Task OnGet()
@@ -40,10 +42,13 @@ namespace BrekkenScan.Web.Pages
 
         public async Task<IActionResult> OnPost()
         {
-            await register.Register(new Business.Business.Consume.Commands.ConsumeModel
+            if (ModelState.IsValid)
             {
-                Barcode = this.Barcode,
-            });
+                await register.Register(new Business.Business.Consume.Commands.ConsumeModel
+                {
+                    Barcode = this.Barcode,
+                });
+            }
 
             return Redirect("/");
         }
