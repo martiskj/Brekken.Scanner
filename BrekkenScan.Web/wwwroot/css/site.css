@@ -224,8 +224,3 @@ label{
 .login-wrapper button {
     font-size: 20px;
 }
-
-.brand-list-wrapper input,
-.login-wrapper input {
-        height: 43px;
-}
