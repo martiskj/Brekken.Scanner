@@ -1,0 +1,10 @@
+.wordcloud {
+    height: 400px;
+    width: 100%;
+    color: beige;
+    margin-bottom: 20px;
+}
+
+.wordcloud svg {
+    color: beige;
+}

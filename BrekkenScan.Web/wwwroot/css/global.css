@@ -1,0 +1,24 @@
+@import "_navigation.css";
+
+h2 {
+    font-size: 40px;
+    color: beige;
+    padding-bottom: 10px;
+}
+
+body {
+    background-color: #1e2e47;
+}
+
+h2 {
+    color: beige;
+}
+
+label {
+    color: beige;
+}
+
+.body-content {
+    padding-left: 15px;
+    padding-right: 15px;
+}

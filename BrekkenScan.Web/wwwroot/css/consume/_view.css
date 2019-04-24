@@ -1,0 +1,60 @@
+.index-wrapper {
+    margin: auto;
+    max-width: 900px;
+    height: 90vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.index-div-wrapper {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+    margin-top: 25px;
+}
+
+.visning-element {
+    border-radius: 2px;
+    background-color: #456597;
+    box-shadow: 3px 3px 10px #242424;
+    color: beige;
+}
+
+.visning-element-invertert {
+    border-radius: 2px;
+    background-color: beige;
+    box-shadow: 3px 3px 10px #242424;
+    color: #456597;
+}
+
+.boks-liten {
+    height: 150px;
+    width: 280px;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    align-items: center;
+}
+
+    .boks-liten i {
+        color: beige;
+        font-size: 55px;
+        margin-right: 25px;
+    }
+
+.boks-liten-tall {
+    font-weight: bold;
+    color: beige;
+    font-size: 40pt;
+    margin-bottom: 0;
+    text-align: center;
+}
+
+.boks-liten-tekst {
+    position: relative;
+    top: -15px;
+    margin-top: 0;
+    font-weight: bold;
+    color: beige;
+}
