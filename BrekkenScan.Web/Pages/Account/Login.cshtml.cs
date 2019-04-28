@@ -25,7 +25,7 @@ namespace BrekkenScan.Web.Pages.Account
             var result = await signInManager.PasswordSignInAsync(Name, Password, isPersistent: true, lockoutOnFailure: false);
             if (!result.Succeeded)
             {
-                ModelState.AddModelError(nameof(Name), "Invalid request!");
+                ModelState.AddModelError(nameof(Name), "Ugyldig brukernavn eller passord!");
                 return Page();
             }
 

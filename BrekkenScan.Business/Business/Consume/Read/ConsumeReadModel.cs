@@ -1,8 +1,8 @@
 ﻿using System.Collections.Generic;
 
-namespace BrekkenScan.Business.Business.Consume.Queries
+namespace BrekkenScan.Business.Business.Consume.Get
 {
-    public class ConsumeModel
+    public class ConsumeReadModel
     {
         public int Total { get; set; }
         public IEnumerable<string> Tonight { get; set; }

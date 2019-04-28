@@ -4,7 +4,12 @@
 <form method="post">
     <div class="index-div-wrapper barcode-input-wrapper">
         <input asp-for="Barcode" placeholder="Strekkode" class="barcode-input" id="barcode-input" />
-
         <button type="submit"><i class="fas fa-glass-cheers"></i></button>
     </div>
 </form>
+
+<script>
+    window.onload = function () {
+        document.getElementById("barcode-input").focus();
+    };
+</script>
