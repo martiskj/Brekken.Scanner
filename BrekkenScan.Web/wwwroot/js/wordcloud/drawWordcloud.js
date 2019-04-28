@@ -1,37 +1,8 @@
-﻿@model BrekkenScan.Web.Pages.IndexModel
-
-
-<div class="index-div-wrapper wordcloud-wrapper">
-    <div class="wordcloud">
-    </div>
-</div>
-
-<script src="~/js/d3/d3.v3.js" type="text/javascript"></script>
-<script src="~/js/d3/d3.wordcloud.js" type="text/javascript"></script>
-<script src="~/js/d3/d3.layout.cloud.js" type="text/javascript"></script>
-
-<script type="text/javascript">
-
-    var tonight = [];
-    @foreach (var d in Model.Tonight)
-    {
-        @:tonight.push('@Html.Raw(d)');
-    }
-
-    console.log(tonight);
-
-    var scale = function (num) {
-        return 1 - Math.pow(2, -num);
-    }
-
-    var distinct = function (list) {
-        return list.filter((x, i, a) => a.indexOf(x) == i);
-    }
-
-    var words = distinct(tonight).map(function (product) {
+﻿function CreateWordcloudOf(consume) {
+    var words = distinct(consume).map(function (product) {
         return {
             text: product,
-            size: 30 + 50 * scale(tonight.filter((e) => e == product).length)
+            size: 30 + 50 * scale(consume.filter((e) => e === product).length)
         };
     });
 
@@ -70,4 +41,12 @@
             })
             .text(function (d) { return d.text; });
     }
-</script>
+}
+
+function scale(num) {
+    return 1 - Math.pow(2, -num);
+}
+
+function distinct(list) {
+    return list.filter((x, i, a) => a.indexOf(x) === i);
+}

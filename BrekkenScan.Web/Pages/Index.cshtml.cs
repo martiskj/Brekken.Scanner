@@ -44,7 +44,7 @@ namespace BrekkenScan.Web.Pages
         {
             if (ModelState.IsValid)
             {
-                await register.Register(new Business.Business.Consume.Create.ConsumeCreateModel
+                await register.Register(new ConsumeCreateModel
                 {
                     Barcode = this.Barcode,
                 });
