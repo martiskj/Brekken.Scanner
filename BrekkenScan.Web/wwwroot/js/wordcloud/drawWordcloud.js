@@ -7,7 +7,7 @@
     });
 
     var layout = d3.layout.cloud()
-        .size([900, 400])
+        .size([900, 600])
         .words(words)
         .padding(5)
         .spiral("rectangular")
