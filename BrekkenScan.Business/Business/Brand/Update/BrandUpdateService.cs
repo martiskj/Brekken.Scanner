@@ -5,23 +5,23 @@ namespace BrekkenScan.Business.Business.Brand.Update
 {
     public class BrandUpdateService
     {
-        private readonly ApplicationDbContext db;
+        private readonly ApplicationDbContext database;
 
-        public BrandUpdateService(ApplicationDbContext db)
+        public BrandUpdateService(ApplicationDbContext database)
         {
-            this.db = db;
+            this.database = database;
         }
 
         public async Task Update(int id, BrandUpdateModel update)
         {
-            var brand = await db.Brand.FindAsync(id);
+            var brand = await database.Brand.FindAsync(id);
             if (brand != null)
             {
                 brand.Name = update.Name;
                 brand.Barcode = update.Barcode;
             }
 
-            await db.SaveChangesAsync();
+            await database.SaveChangesAsync();
         }
     }
 }

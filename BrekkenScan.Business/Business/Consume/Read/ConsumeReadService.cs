@@ -7,20 +7,20 @@ namespace BrekkenScan.Business.Business.Consume.Get
 {
     public class ConsumeReadService
     {
-        private readonly ApplicationDbContext _db;
+        private readonly ApplicationDbContext database;
 
-        public ConsumeReadService(ApplicationDbContext db) => _db = db;
+        public ConsumeReadService(ApplicationDbContext database) => this.database = database;
 
         public async Task<ConsumeReadModel> GetConsume() => new ConsumeReadModel
         {
-            Total = await _db.Consume.CountAsync(),
-            Tonight = _db.Consume
+            Total = await database.Consume.CountAsync(),
+            Tonight = database.Consume
                 .Where(c => c.TimeStamp > System.DateTime.Now.AddHours(-13))
                 .ToList()
                 .Select(c => GetBrand(c) ?? "Ukjent")
         };
 
-        private string GetBrand(Domain.Entities.Consume consume)
-            => _db.Brand.FirstOrDefault(brand => brand.Barcode == consume.Barcode)?.Name;
+        private string GetBrand(Domain.Consume consume)
+            => database.Brand.FirstOrDefault(brand => brand.Barcode == consume.Barcode)?.Name;
     }
 }

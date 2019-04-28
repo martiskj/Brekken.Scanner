@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace BrekkenScan.Domain.Entities
+namespace BrekkenScan.Domain
 {
     public class Consume
     {

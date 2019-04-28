@@ -6,15 +6,16 @@ namespace BrekkenScan.Business.Business.Brand.Get
 {
     public class BrandReadService
     {
-        private readonly ApplicationDbContext db;
+        private readonly ApplicationDbContext database;
 
-        public BrandReadService(ApplicationDbContext db)
+        public BrandReadService(ApplicationDbContext database)
         {
-            this.db = db;
+            this.database = database;
         }
         public IEnumerable<BrandReadModel> GetBrands(BrandFilter filter)
         {
-            return db.Brand.Filter(filter)
+            return database.Brand
+                .Filter(filter)
                 .Select(b => new BrandReadModel
                 {
                     Id = b.Id,

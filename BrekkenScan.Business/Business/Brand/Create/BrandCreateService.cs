@@ -5,21 +5,21 @@ namespace BrekkenScan.Business.Business.Brand.Create
 {
     public class BrandCreateService
     {
-        private readonly ApplicationDbContext db;
+        private readonly ApplicationDbContext database;
 
-        public BrandCreateService(ApplicationDbContext db)
+        public BrandCreateService(ApplicationDbContext database)
         {
-            this.db = db;
+            this.database = database;
         }
 
         public async Task Create(BrandCreateModel model)
         {
-            await db.Brand.AddAsync(new Domain.Entities.Brand
+            await database.Brand.AddAsync(new Domain.Brand
             {
                 Barcode = model.Barcode,
                 Name = model.Name,
             });
-            await db.SaveChangesAsync();
+            await database.SaveChangesAsync();
         }
     }
 }

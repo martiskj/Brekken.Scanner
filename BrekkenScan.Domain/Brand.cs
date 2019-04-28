@@ -1,4 +1,4 @@
-﻿namespace BrekkenScan.Domain.Entities
+﻿namespace BrekkenScan.Domain
 {
     public class Brand
     {

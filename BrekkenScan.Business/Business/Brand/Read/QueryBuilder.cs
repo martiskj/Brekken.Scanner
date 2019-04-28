@@ -8,7 +8,7 @@ namespace BrekkenScan.Business.Business.Brand.Get
 {
     public static class QueryBuilder
     {
-        public static IQueryable<Domain.Entities.Brand> Filter(this IQueryable<Domain.Entities.Brand> brands, BrandFilter filter)
+        public static IQueryable<Domain.Brand> Filter(this IQueryable<Domain.Brand> brands, BrandFilter filter)
         {
             if (filter.Id != null)
             {

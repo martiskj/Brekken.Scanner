@@ -6,18 +6,18 @@ namespace BrekkenScan.Business.Business.Consume.Create
 {
     public class ConsumeCreateService
     {
-        private readonly ApplicationDbContext _context;
+        private readonly ApplicationDbContext database;
 
-        public ConsumeCreateService(ApplicationDbContext context) => _context = context;
+        public ConsumeCreateService(ApplicationDbContext database) => this.database = database;
 
         public async Task Register(ConsumeCreateModel consume)
         {
-            await _context.Consume.AddAsync(new Domain.Entities.Consume
+            await database.Consume.AddAsync(new Domain.Consume
             {
                 TimeStamp = DateTime.Now,
                 Barcode = consume.Barcode,
             });
-            await _context.SaveChangesAsync();
+            await database.SaveChangesAsync();
         }
     }
 }

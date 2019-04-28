@@ -1,5 +1,4 @@
 ﻿using BrekkenScan.Business.Business.Brand.Get;
-using BrekkenScan.Domain.Entities;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using System.Collections.Generic;
