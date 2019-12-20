@@ -12,8 +12,6 @@ namespace BrekkenScan.Persistence
             services.AddDbContext<ApplicationDbContext>(opt =>
                 opt.UseSqlServer(connection, b => b.MigrationsAssembly("BrekkenScan.Persistence")));
 
-            services.AddIdentity<IdentityUser, IdentityRole>()
-                .AddEntityFrameworkStores<ApplicationDbContext>();
             return services;
         }
     }

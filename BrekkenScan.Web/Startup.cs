@@ -29,12 +29,9 @@ namespace BrekkenScan.Web
             });
 
             AddApplicationServices(services);
-            services.AddMvc()
-                .SetCompatibilityVersion(CompatibilityVersion.Version_2_1)
-                .AddRazorPagesOptions(options =>
-                {
-                    options.Conventions.AuthorizeFolder("/").AllowAnonymousToFolder("/Account");
-                });
+            services
+                .AddMvc()
+                .SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
         }
 
         private IServiceCollection AddApplicationServices(IServiceCollection services)
