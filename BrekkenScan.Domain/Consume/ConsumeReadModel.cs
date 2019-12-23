@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace BrekkenScan.Business.Business.Consume.Get
+namespace BrekkenScan.Domain.Models
 {
     public class ConsumeReadModel
     {

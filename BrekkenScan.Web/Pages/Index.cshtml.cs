@@ -1,10 +1,8 @@
-using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
-using System.Linq;
 using System.Threading.Tasks;
-using BrekkenScan.Business.Business.Consume.Create;
-using BrekkenScan.Business.Business.Consume.Get;
+using BrekkenScan.Domain;
+using BrekkenScan.Domain.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 
@@ -12,13 +10,11 @@ namespace BrekkenScan.Web.Pages
 {
     public class IndexModel : PageModel
     {
-        private readonly ConsumeReadService reader;
-        private readonly ConsumeCreateService register;
+        private readonly IConsumeStorage _storage;
 
-        public IndexModel(ConsumeReadService reader, ConsumeCreateService register)
+        public IndexModel(IConsumeStorage storage)
         {
-            this.reader = reader;
-            this.register = register;
+            _storage = storage;
         }
 
         public int Total { get; set; }
@@ -33,7 +29,7 @@ namespace BrekkenScan.Web.Pages
 
         public async Task OnGet()
         {
-            var consume = await reader.GetConsume();
+            var consume = await _storage.Get(new ConsumeFilter());
 
             Tonight = consume.Tonight;
             Total = consume.Total;
@@ -44,9 +40,9 @@ namespace BrekkenScan.Web.Pages
         {
             if (ModelState.IsValid)
             {
-                await register.Register(new ConsumeCreateModel
+                await _storage.Add(new Consume
                 {
-                    Barcode = this.Barcode,
+                    Barcode = Barcode,
                 });
             }
 

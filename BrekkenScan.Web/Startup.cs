@@ -1,5 +1,4 @@
 using BrekkenScan.Business;
-using BrekkenScan.Domain;
 using BrekkenScan.Persistence;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;

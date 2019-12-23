@@ -1,5 +1,7 @@
-﻿using BrekkenScan.Domain;
-using Microsoft.AspNetCore.Identity;
+﻿using BrekkenScan.Business;
+using BrekkenScan.Domain;
+using BrekkenScan.Persistence.Repositories.Brand;
+using BrekkenScan.Persistence.Repositories.Consume;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 
@@ -12,6 +14,13 @@ namespace BrekkenScan.Persistence
             services.AddDbContext<ApplicationDbContext>(opt =>
                 opt.UseSqlServer(connection, b => b.MigrationsAssembly("BrekkenScan.Persistence")));
 
+            return services;
+        }
+
+        public static IServiceCollection AddBusinessServices(this IServiceCollection services)
+        {
+            services.AddTransient<IConsumeStorage, ConsumeStorage>();
+            services.AddTransient<IBrandStorage, BrandStorage>();
             return services;
         }
     }

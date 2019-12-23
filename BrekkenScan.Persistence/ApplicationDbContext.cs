@@ -1,7 +1,7 @@
-﻿using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
+﻿using BrekkenScan.Domain.Models;
 using Microsoft.EntityFrameworkCore;
 
-namespace BrekkenScan.Domain
+namespace BrekkenScan.Business
 {
     public class ApplicationDbContext : DbContext
     {

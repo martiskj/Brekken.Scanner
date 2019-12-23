@@ -1,14 +1,11 @@
-﻿using BrekkenScan.Business.Business.Brand.Get;
-using System;
-using System.Collections.Generic;
+﻿using BrekkenScan.Domain.Models;
 using System.Linq;
-using System.Text;
 
-namespace BrekkenScan.Business.Business.Brand.Get
+namespace BrekkenScan.Persistence.Repositories.Brand.Read
 {
     public static class QueryBuilder
     {
-        public static IQueryable<Domain.Brand> Filter(this IQueryable<Domain.Brand> brands, BrandFilter filter)
+        public static IQueryable<Domain.Models.Brand> Filter(this IQueryable<Domain.Models.Brand> brands, BrandFilter filter)
         {
             if (filter.Id != null)
             {

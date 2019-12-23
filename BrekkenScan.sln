@@ -5,17 +5,9 @@ VisualStudioVersion = 16.0.28729.10
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BrekkenScan.Web", "BrekkenScan.Web\BrekkenScan.Web.csproj", "{75B5FCA3-AC35-4347-9865-9317B11F86AC}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Presentation", "Presentation", "{03E80E51-F99E-4306-BCE9-6227A497CC41}"
-EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Core", "Core", "{6BB73A19-5C82-4677-8947-7EB0F37BC0DB}"
-EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BrekkenScan.Business", "BrekkenScan.Business\BrekkenScan.Business.csproj", "{DD33F857-E6F4-4355-91B7-E547AABFB3A4}"
-EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BrekkenScan.Domain", "BrekkenScan.Domain\BrekkenScan.Domain.csproj", "{106130F6-D920-4D64-AE61-DA51BFCE1449}"
-EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Infrastructure", "Infrastructure", "{BE7519AA-0536-4FEC-BDA2-13E1DAB0B6C0}"
-EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BrekkenScan.Persistence", "BrekkenScan.Persistence\BrekkenScan.Persistence.csproj", "{E4478532-5475-44EE-A839-1C208AF7A7DB}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BrekkenScan.Domain", "BrekkenScan.Domain\BrekkenScan.Domain.csproj", "{6024842E-0021-4CF9-8D9B-3B18B8228230}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -27,27 +19,17 @@ Global
 		{75B5FCA3-AC35-4347-9865-9317B11F86AC}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{75B5FCA3-AC35-4347-9865-9317B11F86AC}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{75B5FCA3-AC35-4347-9865-9317B11F86AC}.Release|Any CPU.Build.0 = Release|Any CPU
-		{DD33F857-E6F4-4355-91B7-E547AABFB3A4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{DD33F857-E6F4-4355-91B7-E547AABFB3A4}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{DD33F857-E6F4-4355-91B7-E547AABFB3A4}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{DD33F857-E6F4-4355-91B7-E547AABFB3A4}.Release|Any CPU.Build.0 = Release|Any CPU
-		{106130F6-D920-4D64-AE61-DA51BFCE1449}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{106130F6-D920-4D64-AE61-DA51BFCE1449}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{106130F6-D920-4D64-AE61-DA51BFCE1449}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{106130F6-D920-4D64-AE61-DA51BFCE1449}.Release|Any CPU.Build.0 = Release|Any CPU
 		{E4478532-5475-44EE-A839-1C208AF7A7DB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{E4478532-5475-44EE-A839-1C208AF7A7DB}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E4478532-5475-44EE-A839-1C208AF7A7DB}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E4478532-5475-44EE-A839-1C208AF7A7DB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6024842E-0021-4CF9-8D9B-3B18B8228230}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6024842E-0021-4CF9-8D9B-3B18B8228230}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6024842E-0021-4CF9-8D9B-3B18B8228230}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6024842E-0021-4CF9-8D9B-3B18B8228230}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
-	EndGlobalSection
-	GlobalSection(NestedProjects) = preSolution
-		{75B5FCA3-AC35-4347-9865-9317B11F86AC} = {03E80E51-F99E-4306-BCE9-6227A497CC41}
-		{DD33F857-E6F4-4355-91B7-E547AABFB3A4} = {6BB73A19-5C82-4677-8947-7EB0F37BC0DB}
-		{106130F6-D920-4D64-AE61-DA51BFCE1449} = {6BB73A19-5C82-4677-8947-7EB0F37BC0DB}
-		{E4478532-5475-44EE-A839-1C208AF7A7DB} = {BE7519AA-0536-4FEC-BDA2-13E1DAB0B6C0}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {F550BD97-62FB-4212-8B23-70B0E32A07E3}
