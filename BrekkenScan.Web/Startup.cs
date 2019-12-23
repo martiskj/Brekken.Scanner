@@ -35,8 +35,7 @@ namespace BrekkenScan.Web
 
         private IServiceCollection AddApplicationServices(IServiceCollection services)
         {
-            services.AddApplicationDbContext(Configuration.GetConnectionString("BrekkenDatabase"));
-            services.AddBusinessServices();
+            services.AddPersistence(Configuration.GetConnectionString("BrekkenDatabase"));
             return services;
         }
 

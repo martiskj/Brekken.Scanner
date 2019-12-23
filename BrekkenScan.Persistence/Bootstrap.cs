@@ -9,15 +9,20 @@ namespace BrekkenScan.Persistence
 {
     public static class Bootstrap
     {
-        public static IServiceCollection AddApplicationDbContext(this IServiceCollection services, string connection)
+        public static IServiceCollection AddPersistence(this IServiceCollection services, string connection)
         {
-            services.AddDbContext<ApplicationDbContext>(opt =>
-                opt.UseSqlServer(connection, b => b.MigrationsAssembly("BrekkenScan.Persistence")));
-
+            services.AddDbContext(connection);
+            services.AddPersistenctServices();
             return services;
         }
 
-        public static IServiceCollection AddBusinessServices(this IServiceCollection services)
+        private static void AddDbContext(this IServiceCollection services, string connection)
+        {
+            services.AddDbContext<ApplicationDbContext>(opt =>
+                opt.UseSqlServer(connection, b => b.MigrationsAssembly("BrekkenScan.Persistence")));
+        }
+
+        private static IServiceCollection AddPersistenctServices(this IServiceCollection services)
         {
             services.AddTransient<IConsumeStorage, ConsumeStorage>();
             services.AddTransient<IBrandStorage, BrandStorage>();
