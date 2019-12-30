@@ -5,8 +5,10 @@ namespace BrekkenScan.Domain
 {
     public interface IConsumeStorage
     {
-        Task Add(Consume consume);
+        Task Add(Models.Consume consume);
 
-        Task<ConsumeReadModel> Get(ConsumeFilter filter);
+        Task<ConsumeReadModel> GetConsume(ConsumeFilter filter);
+
+        Task<Paginated<Models.ConsumeReading>> Get(ConsumeFilter filter);
     }
 }

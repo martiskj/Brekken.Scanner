@@ -1,4 +1,5 @@
 using BrekkenScan.Business;
+using BrekkenScan.Domain;
 using BrekkenScan.Persistence;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -35,6 +36,7 @@ namespace BrekkenScan.Web
 
         private IServiceCollection AddApplicationServices(IServiceCollection services)
         {
+            services.AddDomain();
             services.AddPersistence(Configuration.GetConnectionString("BrekkenDatabase"));
             return services;
         }

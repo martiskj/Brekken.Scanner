@@ -58,3 +58,25 @@
     font-weight: bold;
     color: beige;
 }
+
+.loading {
+    position: relative;
+    box-sizing: border-box;
+    margin-bottom: 15px;
+    width: 60px;
+    height: 60px;
+    border: 10px solid #f5f5dc;
+    border-top: 10px solid #97a8b7;
+    border-radius: 50%;
+    animation: 2s spin infinite;
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}

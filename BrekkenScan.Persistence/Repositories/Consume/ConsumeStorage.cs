@@ -19,12 +19,30 @@ namespace BrekkenScan.Persistence.Repositories.Consume
 
         public async Task Add(Domain.Models.Consume consume)
         {
-            consume.TimeStamp = DateTime.Now;
             await _database.Consume.AddAsync(consume);
             await _database.SaveChangesAsync();
         }
 
-        public async Task<ConsumeReadModel> Get(ConsumeFilter filter)
+        public async Task<Paginated<Domain.Models.ConsumeReading>> Get(Domain.ConsumeFilter filter)
+        {
+            var query = _database.Consume
+                .AsQueryable()
+                .Filter(filter);
+
+            return new Paginated<Domain.Models.ConsumeReading>
+            {
+                Total = await query.CountAsync(),
+                Result = (await query.ToListAsync()).Select(c => new ConsumeReading
+                {
+                    Id = c.Id,
+                    Barcode = c.Barcode,
+                    Product = GetBrand(c),
+                    TimeStamp = c.TimeStamp
+                }).ToList()
+            };
+        }
+
+        public async Task<ConsumeReadModel> GetConsume(Domain.ConsumeFilter filter)
         {
             return new ConsumeReadModel
             {
@@ -32,11 +50,12 @@ namespace BrekkenScan.Persistence.Repositories.Consume
                 Tonight = _database.Consume
                     .Where(c => c.TimeStamp > DateTime.Now.AddHours(-13))
                     .ToList()
-                    .Select(c => GetBrand(c) ?? "Ukjent")
+                    .Select(c => GetBrand(c))
+                    .ToList()
             };
         }
 
         private string GetBrand(Domain.Models.Consume consume)
-            => _database.Brand.FirstOrDefault(brand => brand.Barcode == consume.Barcode)?.Name;
+            => _database.Brand.FirstOrDefault(brand => brand.Barcode == consume.Barcode)?.Name ?? "Ukjent";
     }
 }
