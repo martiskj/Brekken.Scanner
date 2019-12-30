@@ -1,9 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using BrekkenScan.Business.Business.Brand.Create;
-using BrekkenScan.Business.Business.Brand.Get;
+﻿using System.Threading.Tasks;
+using BrekkenScan.Domain;
+using BrekkenScan.Domain.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 
@@ -11,26 +8,32 @@ namespace BrekkenScan.Web.Pages.Brands
 {
     public class CreateModel : PageModel
     {
-        private readonly BrandCreateService creater;
+        private readonly IBrandStorage _storage;
 
-        public CreateModel(BrandCreateService creater)
+        public CreateModel(IBrandStorage storage)
         {
-            this.creater = creater;
+            _storage = storage;
         }
 
         [BindProperty]
-        public BrandCreateModel Brand { get; set; }
-
-        public IActionResult OnGet()
-        {
-            Brand = new BrandCreateModel();
-            return Page();
-        }
+        public BrandCreateModel Brand { get; set; } = new BrandCreateModel();
 
         public async Task<IActionResult> OnPost()
         {
-            await creater.Create(Brand);
+            await _storage.Add(new Brand
+            {
+                Barcode = Brand.Barcode,
+                Name = Brand.Name
+            });
+
             return RedirectToPage("./List");
+        }
+
+        public class BrandCreateModel
+        {
+            public string Name { get; set; }
+
+            public string Barcode { get; set; }
         }
     }
 }

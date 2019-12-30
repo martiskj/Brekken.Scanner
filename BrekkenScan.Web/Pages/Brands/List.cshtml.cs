@@ -1,29 +1,31 @@
-﻿using BrekkenScan.Business.Business.Brand.Get;
+﻿using BrekkenScan.Domain;
+using BrekkenScan.Domain.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using System.Collections.Generic;
+using System.Threading.Tasks;
 
 namespace BrekkenScan.Web.Pages.Brands
 {
-    public class GetBrandsModel : PageModel
+    public class BrandListingModel : PageModel
     {
-        private readonly BrandReadService service;
+        private readonly IBrandStorage _storage;
 
-        public GetBrandsModel(BrandReadService service)
+        public BrandListingModel(IBrandStorage storage)
         {
-            this.service = service;
+            _storage = storage;
         }
 
         [BindProperty(SupportsGet = true)]
         public string SearchCriteria { get; set; }
 
-        public IEnumerable<BrandReadModel> Brands { get; set; }
+        public IEnumerable<Brand> Brands { get; set; }
 
-        public void OnGet()
+        public async Task OnGet()
         {
-            Brands = service.GetBrands(new BrandFilter
+            Brands = await _storage.Get(new BrandFilter
             {
-                NameOrBarcode = SearchCriteria
+                NameOrBarcode = SearchCriteria,
             });
         }
     }
