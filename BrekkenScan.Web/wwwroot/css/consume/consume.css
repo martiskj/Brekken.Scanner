@@ -1,3 +1,12 @@
 @import "_wordcloud.css";
 @import "_view.css";
 @import "_registration.css";
+
+.index-wrapper {
+    margin: auto;
+    width: 900px;
+    height: 90vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}

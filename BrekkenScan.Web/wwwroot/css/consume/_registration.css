@@ -2,9 +2,10 @@
     border-radius: 2px;
     background-color: beige;
     box-shadow: 3px 3px 10px #242424;
+    width: 100%;
 }
 
-.barcode-input {
+.barcode-input-wrapper > input[type="text"] {
     margin: auto;
     color: #456597;
     background-color: beige;
@@ -15,7 +16,7 @@
     font-weight: bold;
 }
 
-.barcode-input-wrapper button {
+.barcode-input-wrapper > button {
     margin: auto;
     color: #456597;
     background-color: beige;

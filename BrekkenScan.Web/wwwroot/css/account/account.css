@@ -1,9 +1,0 @@
-.login-wrapper {
-    height: 90vh;
-    max-width: 900px;
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
-    margin: auto;
-    padding: 0 20px 0 20px;
-}

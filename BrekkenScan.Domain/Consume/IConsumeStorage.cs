@@ -7,8 +7,6 @@ namespace BrekkenScan.Domain
     {
         Task Add(Models.Consume consume);
 
-        Task<ConsumeReadModel> GetConsume(ConsumeFilter filter);
-
-        Task<Paginated<Models.ConsumeReading>> Get(ConsumeFilter filter);
+        Task<Paginated<ConsumeReading>> Get(ConsumeFilter filter);
     }
 }

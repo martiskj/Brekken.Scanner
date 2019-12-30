@@ -2,7 +2,6 @@
 using BrekkenScan.Domain;
 using BrekkenScan.Domain.Models;
 using Microsoft.EntityFrameworkCore;
-using System;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -23,13 +22,13 @@ namespace BrekkenScan.Persistence.Repositories.Consume
             await _database.SaveChangesAsync();
         }
 
-        public async Task<Paginated<Domain.Models.ConsumeReading>> Get(Domain.ConsumeFilter filter)
+        public async Task<Paginated<ConsumeReading>> Get(Domain.ConsumeFilter filter)
         {
             var query = _database.Consume
                 .AsQueryable()
                 .Filter(filter);
 
-            return new Paginated<Domain.Models.ConsumeReading>
+            return new Paginated<ConsumeReading>
             {
                 Total = await query.CountAsync(),
                 Result = (await query.ToListAsync()).Select(c => new ConsumeReading
@@ -39,19 +38,6 @@ namespace BrekkenScan.Persistence.Repositories.Consume
                     Product = GetBrand(c),
                     TimeStamp = c.TimeStamp
                 }).ToList()
-            };
-        }
-
-        public async Task<ConsumeReadModel> GetConsume(Domain.ConsumeFilter filter)
-        {
-            return new ConsumeReadModel
-            {
-                Total = await _database.Consume.CountAsync(),
-                Tonight = _database.Consume
-                    .Where(c => c.TimeStamp > DateTime.Now.AddHours(-13))
-                    .ToList()
-                    .Select(c => GetBrand(c))
-                    .ToList()
             };
         }
 
