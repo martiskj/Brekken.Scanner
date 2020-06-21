@@ -7,6 +7,9 @@
 
     <h2>Produkter</h2>
 
+
+    <a asp-page="./Create" class="btn btn-primary create-brand">Opprett</a>
+
     <form method="get">
         <div class="form-group">
             <div class="input-group">
@@ -19,6 +22,7 @@
             </div>
         </div>
     </form>
+
 
     <table class="table table-brands">
         <tr>
@@ -36,12 +40,11 @@
         }
     </table>
 
-    <a asp-page="./Create" class="btn btn-primary">Opprett</a>
 
 </div>
 
 <script>
     window.onload = function () {
-       document.getElementById("brand-search").focus();
+        document.getElementById("brand-search").focus();
     };
 </script>
