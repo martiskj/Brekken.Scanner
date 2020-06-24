@@ -24,9 +24,9 @@ namespace BrekkenScan.Persistence.Repositories.Consume
 
         public async Task<Paginated<ConsumeReading>> Get(Domain.ConsumeFilter filter)
         {
-            var query = _database.Consume
-                .AsQueryable()
-                .Filter(filter);
+            var query = _database.Consume.AsQueryable()
+                .Filter(filter)
+                .AsNoTracking();
 
             return new Paginated<ConsumeReading>
             {

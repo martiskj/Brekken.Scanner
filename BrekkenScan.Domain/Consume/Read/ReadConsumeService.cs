@@ -14,14 +14,9 @@ namespace BrekkenScan.Domain.Consume.Read
             _storage = storage;
         }
 
-        public async Task<Paginated<Models.ConsumeReading>> Read()
+        public async Task<Paginated<Models.ConsumeReading>> Read(ConsumeFilter filter)
         {
-            var a = await _storage.Get(new ConsumeFilter
-            {
-                From = DateTime.Now.AddHours(-13),
-            });
-
-            return a;
+            return await _storage.Get(filter);
         }
     }
 }

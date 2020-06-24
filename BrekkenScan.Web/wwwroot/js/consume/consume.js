@@ -3,6 +3,9 @@
 window.onload = async function () {
     let wc = new Wordcloud('div .wordcloud');
 
+    let consumeTotal = await fetchTotalConsume();
+    showConsumeTotal(consumeTotal);
+
     let consumeTonight = await fetchTonightsConsume();
     showConsumeTonight(consumeTonight);
     updateWordcloud(wc, consumeTonight);
@@ -14,8 +17,12 @@ window.onload = async function () {
         await postConsume(form);
         form.reset();
 
+        let consumeTotal = await fetchTotalConsume();
         let consumeTonight = await fetchTonightsConsume();
+
+        showConsumeTotal(consumeTotal);
         showConsumeTonight(consumeTonight);
+
         updateWordcloud(wc, consumeTonight);
     });
 
@@ -24,6 +31,12 @@ window.onload = async function () {
 
 function showConsumeTonight(consume) {
     var tonight = document.getElementsByClassName('boks-liten-tall')[1];
+    tonight.classList.remove('loading');
+    tonight.innerHTML = consume.total;
+}
+
+function showConsumeTotal(consume) {
+    var tonight = document.getElementsByClassName('boks-liten-tall')[0];
     tonight.classList.remove('loading');
     tonight.innerHTML = consume.total;
 }
@@ -56,6 +69,18 @@ function createRequestFromForm(form) {
 }
 
 async function fetchTonightsConsume() {
-    let response = await fetch('api/consume');
+    let date = hoursAgo(13).toISOString();
+    console.log(date);
+
+    let response = await fetch(`api/consume?from=${date}`);
     return await response.json();
+}
+
+async function fetchTotalConsume() {
+    let response = await fetch(`api/consume`);
+    return await response.json();
+}
+
+function hoursAgo(hours) {
+    return new Date(Date.now() - 1000 * 3600 * hours);
 }

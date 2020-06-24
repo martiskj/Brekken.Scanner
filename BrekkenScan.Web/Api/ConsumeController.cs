@@ -2,6 +2,7 @@
 using BrekkenScan.Domain.Consume.Create;
 using BrekkenScan.Domain.Consume.Read;
 using Microsoft.AspNetCore.Mvc;
+using System;
 using System.Threading;
 using System.Threading.Tasks;
 
@@ -21,10 +22,18 @@ namespace BrekkenScan.Web.Api
         }
 
         [HttpGet("api/consume")]
-        public async Task<ActionResult<Paginated<Domain.Models.ConsumeReading>>> ReadConsume([FromServices] ReadConsumeService consume)
+        public async Task<ActionResult<Paginated<Domain.Models.ConsumeReading>>> ReadConsume([FromServices] ReadConsumeService consume, [FromQuery] ReadConsumeQuery query)
         {
-            return Ok(await consume.Read());
+            return Ok(await consume.Read(new ConsumeFilter
+            {
+                From = query.From
+            }));
         }
+    }
+
+    public class ReadConsumeQuery
+    {
+        public System.DateTime? From { get; set; }
     }
 
     public class CreateConsumeRequest
