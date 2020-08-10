@@ -37,3 +37,27 @@ stages:
         artifact: 'www'
         publishLocation: 'pipeline'
       displayName: 'publish artifact as www'
+
+- stage: Release
+  displayName: 'Release to Production'
+  jobs:
+  - deployment: Release
+    environment: Production
+    strategy:
+      runOnce:
+        deploy:
+          steps:
+          - task: DownloadPipelineArtifact@2
+            inputs:
+              buildType: 'current'
+              artifactName: 'www'
+              targetPath: '$(System.DefaultWorkingDirectory)'
+
+          - task: AzureRmWebAppDeployment@4
+            inputs:
+              ConnectionType: 'AzureRM'
+              azureSubscription: 'Brekkenscanner - Azure'
+              appType: 'webAppLinux'
+              WebAppName: 'brekkenscanner-staging'
+              packageForLinux: '$(System.DefaultWorkingDirectory)'
+              StartupCommand: 'dotnet BrekkenScan.Api.dll'
