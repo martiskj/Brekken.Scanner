@@ -19,14 +19,20 @@
       <li><a href="https://twitter.com/vuejs" target="_blank" rel="noopener">Twitter</a></li>
       <li><a href="https://news.vuejs.org" target="_blank" rel="noopener">News</a></li>
     </ul>
-    <h3>s</h3>
-    <ul>
-      <li><a href="https://router.vuejs.org" target="_blank" rel="noopener">vue-router</a></li>
-      <li><a href="https://vuex.vuejs.org" target="_blank" rel="noopener">vuex</a></li>
-      <li><a href="https://github.com/vuejs/vue-devtools#vue-devtools" target="_blank" rel="noopener">vue-devtools</a></li>
-      <li><a href="https://vue-loader.vuejs.org" target="_blank" rel="noopener">vue-loader</a></li>
-      <li><a href="https://github.com/vuejs/awesome-vue" target="_blank" rel="noopener">awesome-vue</a></li>
-    </ul>
+    <h3>asd</h3>
+    <div class="tablau">
+      <table>
+        <tr>
+          <th>Date</th>
+          <th>Temperature</th>
+        </tr>
+        <tr v-for="w in weather" :key="w.id">
+          <td>{{ w.date }}</td>
+          <td>{{ w.temperatureC }} C/F</td>
+        </tr>
+      </table>
+    </div>
+
   </div>
 </template>
 
@@ -35,6 +41,21 @@ export default {
   name: 'HelloWorld',
   props: {
     msg: String
+  },
+  methods: {
+    async getWeather() {
+        this.weather = await fetch('/api/weather')
+          .then(res => res.json())
+          .catch(res => console.error(res));
+    }
+  },
+  data() {
+    return {
+      weather: []
+    }
+  },
+  mounted() {
+    this.getWeather();
   }
 }
 </script>
@@ -54,5 +75,13 @@ li {
 }
 a {
   color: #42b983;
+}
+
+.tablau {
+  display: flex;
+  justify-content: center;
+  border: 1px solid black;
+  max-width: 500px;
+  margin: auto;
 }
 </style>

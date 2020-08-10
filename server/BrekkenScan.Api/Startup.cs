@@ -51,7 +51,7 @@ namespace BrekkenScan.Api
             {
                 if (env.IsDevelopment())
                 {
-                    spa.UseProxyToSpaDevelopmentServer("http://localhost:8080");
+                    spa.UseProxyToSpaDevelopmentServer("http://127.0.0.1:8080");
                 }
             });
         }

@@ -8,7 +8,6 @@ using Microsoft.Extensions.Logging;
 namespace BrekkenScan.Api.Controllers
 {
     [ApiController]
-    [Route("[controller]")]
     public class WeatherForecastController : ControllerBase
     {
         private static readonly string[] Summaries = new[]
@@ -23,7 +22,7 @@ namespace BrekkenScan.Api.Controllers
             _logger = logger;
         }
 
-        [HttpGet]
+        [HttpGet("/api/weather")]
         public IEnumerable<WeatherForecast> Get()
         {
             var rng = new Random();
