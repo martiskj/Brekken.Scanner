@@ -22,3 +22,17 @@ stages:
         zipAfterPublish: false
         modifyOutputPath: false
       displayName: 'dotnet publish'
+
+    - task: CopyFiles@2
+        inputs:
+          SourceFolder: 'published-server'
+          Contents: '**'
+          TargetFolder: '$(Build.ArtifactStagingDirectory)'
+        displayName: 'copy published server to artifact staging'
+
+    - task: PublishPipelineArtifact@1
+        inputs:
+          targetPath: '$(Build.ArtifactStagingDirectory)'
+          artifact: 'www'
+          publishLocation: 'pipeline'
+        displayName: 'publish artifact as www'
