@@ -7,7 +7,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BrekkenScan.Web", "BrekkenS
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BrekkenScan.Persistence", "BrekkenScan.Persistence\BrekkenScan.Persistence.csproj", "{E4478532-5475-44EE-A839-1C208AF7A7DB}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BrekkenScan.Domain", "BrekkenScan.Domain\BrekkenScan.Domain.csproj", "{6024842E-0021-4CF9-8D9B-3B18B8228230}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BrekkenScan.Domain", "BrekkenScan.Domain\BrekkenScan.Domain.csproj", "{6024842E-0021-4CF9-8D9B-3B18B8228230}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BrekkenScan.Api", "BrekkenScan.Api\BrekkenScan.Api.csproj", "{5EE883F5-5FAB-4C1F-9C61-1C247C698FE9}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -27,6 +29,10 @@ Global
 		{6024842E-0021-4CF9-8D9B-3B18B8228230}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6024842E-0021-4CF9-8D9B-3B18B8228230}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6024842E-0021-4CF9-8D9B-3B18B8228230}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5EE883F5-5FAB-4C1F-9C61-1C247C698FE9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5EE883F5-5FAB-4C1F-9C61-1C247C698FE9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5EE883F5-5FAB-4C1F-9C61-1C247C698FE9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5EE883F5-5FAB-4C1F-9C61-1C247C698FE9}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
