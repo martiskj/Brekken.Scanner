@@ -17,8 +17,9 @@ stages:
     - task: DotNetCoreCLI@2
       inputs:
         command: 'publish'
-        publishWebProjects: true
-        arguments: 'server/BrekkenScan.Api --configuration Production --output published-server'
+        publishWebProjects: false
+        projects: 'server/BrekkenScan.Api'
+        arguments: '--configuration Production --output published-server'
         zipAfterPublish: false
         modifyOutputPath: false
       displayName: 'dotnet publish'
