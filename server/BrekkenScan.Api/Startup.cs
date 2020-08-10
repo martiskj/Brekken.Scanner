@@ -36,7 +36,11 @@ namespace BrekkenScan.Api
                 app.UseDeveloperExceptionPage();
             }
 
-            app.UseHttpsRedirection();
+            if (!env.IsDevelopment())
+            {
+                // Hot reload is not supported with https redirection locally :/
+                app.UseHttpsRedirection();
+            }
 
             app.UseRouting();
 

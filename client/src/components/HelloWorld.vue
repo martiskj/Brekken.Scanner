@@ -1,34 +1,17 @@
 <template>
   <div class="hello">
-    <h1>{{ msg }}</h1>
-    <p>
-      For a guide and recipes on how to configure / customize this project,<br>
-      check out the
-      <a href="https://cli.vuejs.org" target="_blank" rel="noopener">vue-cli documentation</a>.
-    </p>
-    <h3>Installed CLI Plugins</h3>
-    <ul>
-      <li><a href="https://github.com/vuejs/vue-cli/tree/dev/packages/%40vue/cli-plugin-babel" target="_blank" rel="noopener">babel</a></li>
-      <li><a href="https://github.com/vuejs/vue-cli/tree/dev/packages/%40vue/cli-plugin-eslint" target="_blank" rel="noopener">eslint</a></li>
-    </ul>
-    <h3>Essential Links</h3>
-    <ul>
-      <li><a href="https://vuejs.org" target="_blank" rel="noopener">Core Docs</a></li>
-      <li><a href="https://forum.vuejs.org" target="_blank" rel="noopener">Forum</a></li>
-      <li><a href="https://chat.vuejs.org" target="_blank" rel="noopener">Community Chat</a></li>
-      <li><a href="https://twitter.com/vuejs" target="_blank" rel="noopener">Twitter</a></li>
-      <li><a href="https://news.vuejs.org" target="_blank" rel="noopener">News</a></li>
-    </ul>
-    <h3>asd</h3>
+    <h1>Weather forecast</h1>
     <div class="tablau">
       <table>
         <tr>
           <th>Date</th>
           <th>Temperature</th>
+          <th>Summary</th>
         </tr>
         <tr v-for="w in weather" :key="w.id">
-          <td>{{ w.date }}</td>
-          <td>{{ w.temperatureC }} C/F</td>
+          <td>{{ new Date(w.date).toDateString() }}</td>
+          <td>{{ w.temperatureC }}°C</td>
+          <td>{{ w.summary }}</td>
         </tr>
       </table>
     </div>
@@ -78,10 +61,7 @@ a {
 }
 
 .tablau {
-  display: flex;
-  justify-content: center;
-  border: 1px solid black;
-  max-width: 500px;
+  max-width: 700px;
   margin: auto;
 }
 </style>
