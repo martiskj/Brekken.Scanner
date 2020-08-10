@@ -61,6 +61,14 @@ namespace BrekkenScan.Web
 
             app.UseAuthentication();
             app.UseMvc();
+            app.UseSpa(s =>
+            {
+                if (env.IsDevelopment())
+                {
+                    s.UseProxyToSpaDevelopmentServer("https://localhost:8080");
+                }
+            });
+
 
             using (var scope = app.ApplicationServices.GetService<IServiceScopeFactory>().CreateScope())
             {
