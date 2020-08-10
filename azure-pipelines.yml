@@ -1,5 +1,5 @@
 trigger:
-- master
+- feature/x-vue 
 
 pool:
   vmImage: 'ubuntu-latest'
