@@ -18,7 +18,7 @@ stages:
       inputs:
         command: 'publish'
         publishWebProjects: true
-        arguments: '--configuration Production --output published-server'
+        arguments: 'server/BrekkenScan.Api --configuration Production --output published-server'
         zipAfterPublish: false
         modifyOutputPath: false
       displayName: 'dotnet publish'
